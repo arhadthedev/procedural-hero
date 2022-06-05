@@ -29,6 +29,20 @@ public:
 	MainWindow();
 
 private Q_SLOTS:
+	void create();
+	void open();
+	void save();
+	void saveAs();
+	void undo();
+	void redo();
+	void cut();
+	void copy();
+	void paste();
+	void remove();
+	void selectAll();
+	void invertSelection();
+	void insertEllipsoid();
+	void insertCuboid();
 	void showAbout();
 
 private:

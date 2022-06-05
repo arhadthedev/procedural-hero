@@ -33,28 +33,61 @@ gui::MainWindow::MainWindow()
 	, showAboutAction(this->tr("&About Procedural Hero..."))
 {
 	this->createAction.setShortcuts({QKeySequence::New});
+	QObject::connect(&this->createAction, &QAction::triggered,
+		         this, &MainWindow::create);
 
 	this->openAction.setShortcuts({QKeySequence::Open});
+	QObject::connect(&this->openAction, &QAction::triggered,
+		         this, &MainWindow::open);
 
 	this->saveAction.setShortcuts({QKeySequence::Save});
+	QObject::connect(&this->saveAction, &QAction::triggered,
+		         this, &MainWindow::save);
 
 	this->saveAsAction.setShortcuts({QKeySequence::SaveAs});
+	QObject::connect(&this->saveAction, &QAction::triggered,
+		         this, &MainWindow::saveAs);
 
 	this->exitAction.setShortcuts({QKeySequence::Quit});
+	QObject::connect(&this->exitAction, &QAction::triggered,
+		         this, &QWidget::close);
 
 	this->undoAction.setShortcuts({QKeySequence::Undo});
+	QObject::connect(&this->undoAction, &QAction::triggered,
+		         this, &MainWindow::undo);
 
 	this->redoAction.setShortcuts({QKeySequence::Redo});
+	QObject::connect(&this->redoAction, &QAction::triggered,
+		         this, &MainWindow::redo);
 
 	this->cutAction.setShortcuts({QKeySequence::Cut});
+	QObject::connect(&this->cutAction, &QAction::triggered,
+		         this, &MainWindow::cut);
 
 	this->copyAction.setShortcuts({QKeySequence::Copy});
+	QObject::connect(&this->copyAction, &QAction::triggered,
+		         this, &MainWindow::copy);
 
 	this->pasteAction.setShortcuts({QKeySequence::Paste});
+	QObject::connect(&this->pasteAction, &QAction::triggered,
+		         this, &MainWindow::paste);
 
 	this->removeAction.setShortcuts({QKeySequence::Delete});
+	QObject::connect(&this->removeAction, &QAction::triggered,
+		         this, &MainWindow::remove);
 
 	this->selectAllAction.setShortcuts({QKeySequence::SelectAll});
+	QObject::connect(&this->selectAllAction, &QAction::triggered,
+		         this, &MainWindow::selectAll);
+
+	QObject::connect(&this->invertSelectionAction, &QAction::triggered,
+		         this, &MainWindow::invertSelection);
+
+	QObject::connect(&this->insertEllipsoidAction, &QAction::triggered,
+		         this, &MainWindow::insertEllipsoid);
+
+	QObject::connect(&this->insertCuboidAction, &QAction::triggered,
+		         this, &MainWindow::insertCuboid);
 
 	QObject::connect(&this->showAboutAction, &QAction::triggered,
 		         this, &MainWindow::showAbout);
@@ -115,6 +148,76 @@ gui::MainWindow::initUiControls()
 	this->rootContainer.setStretchFactor(1, 1);
 
 	this->setCentralWidget(&this->rootContainer);
+}
+
+void
+gui::MainWindow::create()
+{
+}
+
+void
+gui::MainWindow::open()
+{
+}
+
+void
+gui::MainWindow::save()
+{
+}
+
+void
+gui::MainWindow::saveAs()
+{
+}
+
+void
+gui::MainWindow::undo()
+{
+}
+
+void
+gui::MainWindow::redo()
+{
+}
+
+void
+gui::MainWindow::cut()
+{
+}
+
+void
+gui::MainWindow::copy()
+{
+}
+
+void
+gui::MainWindow::paste()
+{
+}
+
+void
+gui::MainWindow::remove()
+{
+}
+
+void
+gui::MainWindow::selectAll()
+{
+}
+
+void
+gui::MainWindow::invertSelection()
+{
+}
+
+void
+gui::MainWindow::insertEllipsoid()
+{
+}
+
+void
+gui::MainWindow::insertCuboid()
+{
 }
 
 static const QString aboutText = QStringLiteral(
