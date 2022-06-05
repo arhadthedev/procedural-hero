@@ -20,9 +20,10 @@ qt_standard_project_setup()
 
 configure_file(src/build.h.in build.h)
 
-add_executable(procedural-hero
+add_executable(procedural-hero WIN32
     src/gui/application.cpp
+    src/gui/mainwindow.cpp
     src/main.cpp)
 target_compile_features(procedural-hero PRIVATE cxx_std_20)
 target_compile_definitions(procedural-hero PRIVATE QT_NO_CAST_FROM_ASCII)
-target_link_libraries(procedural-hero PRIVATE Qt6::Widgets)
+target_link_libraries(procedural-hero PRIVATE Qt6::OpenGLWidgets Qt6::Widgets)

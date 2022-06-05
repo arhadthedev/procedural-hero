@@ -7,6 +7,7 @@
  */
 
 #include "application.hpp"
+#include "mainwindow.hpp"
 #include <build.h>
 #include <QtWidgets/QApplication>
 
@@ -19,6 +20,9 @@ gui::run_application(int argc, char *argv[])
 	QApplication app(argc, argv);
 	app.setApplicationName(appName);
 	app.setApplicationVersion(appVersion);
+
+	MainWindow window;
+	window.show();
 
 	return app.exec();
 }
