@@ -9,6 +9,7 @@
 #ifndef PROCHERO_GUI_MAINWINDOW_H
 #define PROCHERO_GUI_MAINWINDOW_H
 
+#include "scene_3d_view.hpp"
 #include <QtGui/QAction>
 #include <QtOpenGLWidgets/QOpenGLWidget>
 #include <QtWidgets/QGroupBox>
@@ -77,7 +78,7 @@ private:
 
 	QSplitter /*     +*/ rootContainer;
 	QTreeView /*     |-*/ projectView;
-	QOpenGLWidget /* |-*/ sceneView;
+	Scene3dView /*   |-*/ sceneView;
 };
 
 } // namespace gui

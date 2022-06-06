@@ -144,8 +144,6 @@ gui::MainWindow::initUiControls()
 {
 	this->rootContainer.addWidget(&this->projectView);
 	this->rootContainer.addWidget(&this->sceneView);
-	this->rootContainer.setStretchFactor(0, 0);
-	this->rootContainer.setStretchFactor(1, 1);
 
 	this->setCentralWidget(&this->rootContainer);
 }
