@@ -13,8 +13,8 @@ enum PlaneVertexAttributes {
 	PlaneVertexPosition
 };
 
-static const GLfloat planeVertices[][2] = {{-0.5,  0.5}, { 0.5,  0.5},
-                                           {-0.5, -0.5}, { 0.5, -0.5}};
+static const GLfloat planeVertices[][2] = {{-1.0,  1.0}, { 1.0,  1.0},
+                                           {-1.0, -1.0}, { 1.0, -1.0}};
 static const GLbyte planeIndices[] = {0, 2, 1, 1, 2, 3};
 
 static const char planeVertexShaderSource[] =
@@ -77,7 +77,6 @@ gui::Scene3dView::initializeGL()
 	this->plane->vertexShader.compileSourceCode(planeVertexShaderSource);
 	this->plane->program.addShader(&this->plane->vertexShader);
 	this->plane->program.addShader(&this->plane->fragmentShader);
-	this->plane->program.bindAttributeLocation("pos", PlaneVertexPosition);
 
 	QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
 
@@ -93,7 +92,6 @@ gui::Scene3dView::paintGL()
 	QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
 
 	/*On relatively modern hardware writes nothing but sets a flag. */
-	f->glClearColor(1.0, 0.5, 0.0, 1.0);
 	f->glClear(GL_COLOR_BUFFER_BIT);
 	f->glDrawElements(GL_TRIANGLES, std::ssize(planeIndices),
 		          GL_UNSIGNED_BYTE, nullptr);
